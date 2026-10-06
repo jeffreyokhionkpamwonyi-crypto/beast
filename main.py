@@ -1,4 +1,3 @@
-
 import os
 from flask import Flask
 import telebot, threading, time
@@ -11,9 +10,9 @@ app = Flask(__name__)
 def home():
     return "BEAST V2 LIVE"
 
-@bot.message_handler(commands=['start', 'linkaccount'])
+@bot.message_handler(commands=['start'])
 def handle(m):
-    bot.reply_to(m, "BEAST V2 LIVE 24/7 Ready for 10K prop...")
+    bot.reply_to(m, "BEAST V2 LIVE 24/7")
 
 def run_bot():
     while True:
@@ -25,5 +24,8 @@ def run_bot():
 threading.Thread(target=run_bot, daemon=True).start()
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.getenv("PORT", 10000)))
-```
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
+
+
+
+
